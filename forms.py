@@ -1,9 +1,8 @@
-from wtforms import Form
-from wtforms import IntegerField, StringField, PasswordField, RadioField
-from wtforms import EmailField
+from flask_wtf import FlaskForm
+from wtforms import IntegerField, StringField, EmailField
 from wtforms import validators
 
-class UserForm(Form):
+class UserForm(FlaskForm):
     id = IntegerField("ID")
     
     nombre = StringField("Nombre", [
@@ -19,4 +18,3 @@ class UserForm(Form):
         validators.InputRequired(message="El campo es requerido"),
         validators.Email(message="Ingrese un correo válido")
     ])
-    
