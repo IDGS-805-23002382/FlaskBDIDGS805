@@ -1,0 +1,42 @@
+{% extends "layouts.html" %}
+{% block container %}
+{% import "_macros.html" as macros %}
+
+<div class="flex items-center justify-center w-full min-h-[70vh]">
+    <form action="{{ url_for('modificar') }}" method="POST" class="w-full max-w-md mx-auto">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+        
+        <div class="hidden">
+            {{ form.id }}
+        </div>
+
+        <div class="relative z-0 w-full mb-5 group">
+            {{ macros.camposNuevos(form.nombre, class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer") }}
+        </div>
+        
+        <div class="relative z-0 w-full mb-5 group">
+            {{ macros.camposNuevos(form.apellidos, class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer") }}
+        </div>
+        
+        <div class="relative z-0 w-full mb-5 group">
+            {{ macros.camposNuevos(form.email, class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer") }}
+        </div>
+
+        <div class="relative z-0 w-full mb-5 group">
+            {{ macros.camposNuevos(form.telefono, class="block py-2.5 px-0 w-full text-sm text-heading bg-transparent border-0 border-b-2 border-default-medium appearance-none focus:outline-none focus:ring-0 focus:border-brand peer") }}
+        </div>
+
+        <div class="relative z-0 w-full mb-5 group flex gap-4">
+            <button type="submit"
+                class="text-white bg-brand box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">
+                Guardar Cambios
+            </button>
+            <a href="{{ url_for('index') }}"
+                class="text-gray-700 bg-gray-200 hover:bg-gray-300 font-medium rounded-base text-sm px-4 py-2.5 focus:outline-none text-center">
+                Cancelar
+            </a>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

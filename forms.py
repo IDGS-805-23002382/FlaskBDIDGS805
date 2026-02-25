@@ -10,11 +10,16 @@ class UserForm(FlaskForm):
         validators.Length(min=4, max=10, message="El nombre debe tener entre 4 y 10 caracteres")
     ])
     
-    apaterno = StringField("Apaterno", [
+    apellidos = StringField("apellidos", [
         validators.InputRequired(message="El campo es requerido")
     ])
     
-    correo = EmailField("Correo", [
+    email = EmailField("Correo", [
         validators.InputRequired(message="El campo es requerido"),
         validators.Email(message="Ingrese un correo válido")
+    ])
+    
+    telefono = StringField("Telefono", [
+        validators.InputRequired(message="El campo es requerido")
+        
     ])
