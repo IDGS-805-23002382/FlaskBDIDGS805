@@ -23,3 +23,26 @@ class UserForm(FlaskForm):
         validators.InputRequired(message="El campo es requerido")
         
     ])
+    
+class UserForm2(FlaskForm):
+    id = IntegerField("ID")
+    
+    nombre = StringField("Nombre", [
+        validators.InputRequired(message="El campo es requerido"),
+        validators.Length(min=4, max=10, message="El nombre debe tener entre 4 y 10 caracteres")
+    ])
+    
+    apellidos = StringField("apellidos", [
+        validators.InputRequired(message="El campo es requerido")
+    ])
+    
+    especialidad = StringField("especialidad", [
+        validators.InputRequired(message="El campo es requerido")
+    ])
+    
+    email = EmailField("Correo", [
+        validators.InputRequired(message="El campo es requerido"),
+        validators.Email(message="Ingrese un correo válido")
+    ])
+    
+   

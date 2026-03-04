@@ -15,3 +15,12 @@ class Alumnos(db.Model):
         db.DateTime,
         default=datetime.datetime.now
     )
+    
+class Maestros(db.Model):
+    _tablename_='maestros'
+    matricula=db.Column(db.Integer, primary_key=True)
+    nombre = db.Column(db.String(50))
+    apellidos = db.Column(db.String(200))
+    especialidad=db.Column(db.String(50))
+    email=db.Column(db.String(50))
+    
